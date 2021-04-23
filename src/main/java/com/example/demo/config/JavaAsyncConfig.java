@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Description:
+ * @Description: jkd线程池
  * @Author: crx
  * @Create: 14:22 2021/4/20
  */

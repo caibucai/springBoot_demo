@@ -1,8 +1,6 @@
 package com.example.demo.config;
 
 import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import org.springframework.context.annotation.Bean;
@@ -11,7 +9,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
- * @Description:
+ * @Description: spring线程池
  * @Author: crx
  * @Create: 10:05 2021/4/20
  */
@@ -20,7 +18,7 @@ public class SpringAsyncConfig {
 
     @Bean("springExecutor")
     @Primary
-    public Executor getSpringPool(){
+    public Executor getSpringPool() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(20);
