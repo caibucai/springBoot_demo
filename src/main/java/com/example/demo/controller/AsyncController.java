@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.annotation.SysLog;
-import com.example.demo.annotation.SysLog2;
 import com.example.demo.service.IAsyncService;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -54,7 +52,7 @@ public class AsyncController {
         return value2 + value3 + value4;
     }
 
-    @SysLog2
+    @SysLog
     @GetMapping("test")
     public Object getTest(){
         return "success";

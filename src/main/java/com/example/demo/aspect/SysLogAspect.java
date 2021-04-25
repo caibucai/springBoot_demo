@@ -69,32 +69,32 @@ public class SysLogAspect {
         return result;
     }
 
-//    /**
-//     * 后置增强，处理完请求后执行
-//     *
-//     * @param joinPoint
-//     * @param jsonResult
-//     */
-//    @AfterReturning(pointcut = "sysLogPointCut()", returning = "jsonResult")
-//    public void doAfterReturning(JoinPoint joinPoint, Object jsonResult) {
-//        log.info("执行结果：{}", jsonResult);
-//    }
-//
-//    /**
-//     * 异常抛出增强
-//     *
-//     * @param e
-//     */
-//    @AfterThrowing(pointcut = "sysLogPointCut()", throwing = "e")
-//    public void doAfterThrowing(Exception e) {
-//        log.info("抛出的异常：", e);
-//    }
-//
-//    /**
-//     * 前置增强方法
-//     */
-//    @Before("sysLogPointCut()")
-//    public void doBefore() {
-//        log.info("前置增强");
-//    }
+    /**
+     * 后置增强，处理完请求后执行
+     *
+     * @param joinPoint
+     * @param jsonResult
+     */
+    @AfterReturning(pointcut = "sysLogPointCut()", returning = "jsonResult")
+    public void doAfterReturning(JoinPoint joinPoint, Object jsonResult) {
+        log.info("执行结果：{}", jsonResult);
+    }
+
+    /**
+     * 异常抛出增强
+     *
+     * @param e
+     */
+    @AfterThrowing(pointcut = "sysLogPointCut()", throwing = "e")
+    public void doAfterThrowing(Exception e) {
+        log.info("抛出的异常：", e);
+    }
+
+    /**
+     * 前置增强方法
+     */
+    @Before("sysLogPointCut()")
+    public void doBefore() {
+        log.info("前置增强");
+    }
 }
