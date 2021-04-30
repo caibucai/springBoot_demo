@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledJob {
 
-    @Scheduled(cron = "*/1 * * * * ?")
+//    @Scheduled(cron = "*/1 * * * * ?")
 //    @Async("javaExecutor")
     public void job1() throws InterruptedException {
         Thread.sleep(2000);

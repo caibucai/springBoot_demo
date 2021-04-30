@@ -69,6 +69,7 @@ public class AsyncServiceImpl implements IAsyncService {
         Thread.sleep(1000);
         FutureTask<Integer> task = new FutureTask<>(() -> 4);
         executorService.submit(task);
+//        executorService.submit(() -> 4);
         log.info("getAsync3:{},threadId:{}", System.currentTimeMillis() - l, Thread.currentThread().getName());
         return task;
     }

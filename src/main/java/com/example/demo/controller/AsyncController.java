@@ -5,11 +5,14 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.annotation.SysLog;
+import com.example.demo.bean.QueryParam;
 import com.example.demo.service.IAsyncService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Create: 10:26 2021/4/20
  */
 @RestController
-@RequestMapping("home")
+@RequestMapping("saync")
 @Slf4j
 public class AsyncController {
     @Autowired
@@ -54,7 +57,7 @@ public class AsyncController {
 
     @SysLog
     @GetMapping("test")
-    public Object getTest(){
+    public Object getTest(@Validated QueryParam queryParam, BindResult bindResult) {
         return "success";
     }
 }

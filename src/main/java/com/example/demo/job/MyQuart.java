@@ -12,6 +12,7 @@ import org.quartz.SimpleScheduleBuilder;
 import org.quartz.SimpleTrigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @Description:
@@ -19,6 +20,9 @@ import org.quartz.impl.StdSchedulerFactory;
  * @Create: 15:04 2021/4/25
  */
 public class MyQuart {
+    @Autowired
+    private Scheduler scheduler;
+
     public static void main(String[] args) throws SchedulerException {
         // 1、创建调度器Scheduler
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
