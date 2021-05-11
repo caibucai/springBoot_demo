@@ -1,8 +1,5 @@
 package com.example.demo.job;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -11,6 +8,7 @@ import org.quartz.SchedulerFactory;
 import org.quartz.SimpleScheduleBuilder;
 import org.quartz.SimpleTrigger;
 import org.quartz.TriggerBuilder;
+import org.quartz.TriggerKey;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,5 +39,12 @@ public class MyQuart {
         //4、执行，将trigger和jobDetail加入这个调度器
         scheduler.scheduleJob(jobDetail, trigger);
         scheduler.start();
+
+        scheduler.unscheduleJob(TriggerKey.triggerKey(trigger.getJobKey().getName()));
+        scheduler.unscheduleJob(TriggerKey.triggerKey(trigger.getKey().getName()));
+        scheduler.deleteJob(trigger.getJobKey());
+        System.out.println("1111111111"+trigger.getJobKey().getName());
+        System.out.println("2222222222"+trigger.getKey().getName());
+        System.out.println("3333333333"+trigger.getKey());
     }
 }

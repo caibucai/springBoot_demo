@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
-import com.example.demo.bean.CaffeineCacheEnum;
+import com.example.demo.enums.CaffeineCacheEnum;
 import com.github.benmanes.caffeine.cache.Caffeine;
 
 /**
