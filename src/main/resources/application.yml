@@ -37,6 +37,13 @@ spring:
         wall:
           config:
             multi-statement-allow: true
+  mvc:
+    #  允许抛出NoHandlerFoundException
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      # 禁用资源映射
+      add-mappings: false
 
   quartz:
     job-store-type: jdbc

@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
@@ -15,6 +14,7 @@ import com.example.demo.annotation.SysLog;
 import com.example.demo.bean.QueryParam;
 import com.example.demo.service.IAsyncService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -23,8 +23,9 @@ import lombok.extern.slf4j.Slf4j;
  * @Create: 10:26 2021/4/20
  */
 @RestController
-@RequestMapping("saync")
+@RequestMapping({"async", "api"})
 @Slf4j
+@RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class AsyncController {
     @Autowired
     private IAsyncService asyncService;
@@ -45,10 +46,9 @@ public class AsyncController {
             value2 = async2.get();
             value3 = async3.get();
             value4 = async4.get();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
         log.info("over");
         log.info(String.valueOf(System.currentTimeMillis() - millis));
