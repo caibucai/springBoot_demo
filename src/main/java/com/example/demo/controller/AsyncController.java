@@ -4,9 +4,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping({"async", "api"})
 @Slf4j
+@Validated
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class AsyncController {
     @Autowired
@@ -56,8 +57,8 @@ public class AsyncController {
     }
 
     @SysLog
-    @GetMapping("test")
-    public Object getTest(@Validated QueryParam queryParam, BindResult bindResult) {
+    @GetMapping({"test{uri}", "test"})
+    public Object getTest(@Validated QueryParam queryParam, @PathVariable(required = false) String uri) {
         return "success";
     }
 }
