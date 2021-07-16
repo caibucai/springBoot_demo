@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--    全局映射器启用缓存    -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--    查询时，关闭关联对象即时加载以提高性能    -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--    只要对这个类的任意操作将完整加载整个类的所有属性即执行级联的SQL语句    -->
+        <setting name="aggressiveLazyLoading" value="true"/>
+        <!--    开启sql日志    -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <plugins>
+        <plugin interceptor="com.example.demo.interceptor.MybatisInterceptor"></plugin>
+    </plugins>
+</configuration>

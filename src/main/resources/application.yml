@@ -2,6 +2,10 @@ server:
   port: 8088
   servlet:
     context-path: /demo
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /logs
 
 spring:
   datasource:
@@ -44,6 +48,11 @@ spring:
     resources:
       # 禁用资源映射
       add-mappings: false
+
+#mybatis配置
+mybatis:
+  #自动扫描mybatis配置文件
+  config-location: classpath:mybatis-config.xml
 
   quartz:
     job-store-type: jdbc

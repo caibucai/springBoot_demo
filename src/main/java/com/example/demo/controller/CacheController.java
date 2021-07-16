@@ -44,6 +44,15 @@ public class CacheController {
         return "cache2";
     }
 
+    @SneakyThrows
+    @Cacheable(value = "cache3")
+    @GetMapping("getCache3")
+    public Object getCache3(String key1, String key2) {
+        Thread.sleep(2000);
+        log.info("cache3，keys：{},{}", key1, key2);
+        return "cache3";
+    }
+
     @CacheEvict(value = "cache1", key = "#key")
     @GetMapping("deleteCache")
     public Object deleteCacheByName(String key) {

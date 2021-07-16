@@ -12,6 +12,8 @@ public enum CaffeineCacheEnum {
     CACHE1("cache1", 50, 20000, 300),
 
     CACHE2("cache2", 10, 10000, 200),
+
+    CACHE3("cache3", 3, 10000, 200),
     ;
 
     private String name;

@@ -31,7 +31,7 @@ public class CaffeineCacheConfig {
             caffeineCacheList.add(new CaffeineCache(
                     cacheEnum.getName(),
                     Caffeine.newBuilder()
-                            .expireAfterWrite(cacheEnum.getSecond(), TimeUnit.SECONDS)
+                            .expireAfterAccess(cacheEnum.getSecond(), TimeUnit.SECONDS)
                             .initialCapacity(cacheEnum.getInitSize())
                             .maximumSize(cacheEnum.getMaxSize())
                             .build()));
