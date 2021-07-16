@@ -18,6 +18,10 @@ public class SpringContextUtils implements ApplicationContextAware {
     //重写setApplicationContext方法，把参数中的ApplicationContext对象赋值给类静态成员
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        SpringContextUtils.initApplicationContext(applicationContext);
+    }
+
+    public static void initApplicationContext(ApplicationContext applicationContext) {
         SpringContextUtils.applicationContext = applicationContext;
     }
 
