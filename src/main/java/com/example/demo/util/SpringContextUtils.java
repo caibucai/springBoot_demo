@@ -12,10 +12,17 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SpringContextUtils implements ApplicationContextAware {
-    //定义静态的ApplicationContext成员对象
+    /**
+     * 定义静态的ApplicationContext成员对象
+     */
     private static ApplicationContext applicationContext;
 
-    //重写setApplicationContext方法，把参数中的ApplicationContext对象赋值给类静态成员
+    /**
+     * 重写setApplicationContext方法，把参数中的ApplicationContext对象赋值给类静态成员
+     *
+     * @param applicationContext
+     * @throws BeansException
+     */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         SpringContextUtils.initApplicationContext(applicationContext);
@@ -29,17 +36,35 @@ public class SpringContextUtils implements ApplicationContextAware {
         return applicationContext;
     }
 
-    //定义get方法，参数为Class，调用上下文的getBean方法获取容器中的指定对象
+    /**
+     * 定义get方法，参数为Class，调用上下文的getBean方法获取容器中的指定对象
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
     }
 
-    //定义get方法，参数为String，调用上下文的getBean方法获取容器中的指定对象
+    /**
+     * 定义get方法，参数为String，调用上下文的getBean方法获取容器中的指定对象
+     *
+     * @param name
+     * @return
+     */
     public static Object getBean(String name) {
         return applicationContext.getBean(name);
     }
 
-    //定义get方法，参数为String和Class，调用上下文的getBean方法获取容器中的指定对象
+    /**
+     * 定义get方法，参数为String和Class，调用上下文的getBean方法获取容器中的指定对象
+     *
+     * @param name
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     public static <T> T getBean(String name, Class<T> clazz) {
         return applicationContext.getBean(name, clazz);
     }
