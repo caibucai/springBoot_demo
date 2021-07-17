@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -69,7 +71,7 @@ public class CacheController {
     public Object deleteAll() {
         Collection<String> cacheNames = cacheManager.getCacheNames();
         for (String cacheName : cacheNames) {
-            cacheManager.getCache(cacheName).clear();
+            Optional.ofNullable(cacheManager.getCache(cacheName)).ifPresent(Cache::clear);
         }
         return "删除所有缓存";
     }
